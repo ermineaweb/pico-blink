@@ -81,14 +81,11 @@ fn main() -> ! {
         &mut pac.RESETS,
     );
 
-    // Configure GPIO25 as an output
-    let mut led_pin = pins.gpio25.into_push_pull_output();
+    let mut led_pin = pins.gpio0.into_push_pull_output();
     loop {
         led_pin.set_high().unwrap();
-        delay.delay_ms(600);
+        delay.delay_ms(500);
         led_pin.set_low().unwrap();
-        delay.delay_ms(2000);
+        delay.delay_ms(500);
     }
 }
-
-// End of file
